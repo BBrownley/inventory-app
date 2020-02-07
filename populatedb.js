@@ -39,10 +39,10 @@ function manufacturerCreate(name, year_established, imagePath, callback) {
     }
 
     if (imagePath) {
-        manufacturerDetail.image.data = fs.readFileSync(imagePath);
+        manufacturerDetail.image.data = Buffer.from(fs.readFileSync(imagePath));
         manufacturerDetail.image.contentType = "image/png";
     } else { // Give it a placeholder image instead
-        manufacturerDetail.image.data = fs.readFileSync("express-inventory-application/images/placeholder.png");
+        manufacturerDetail.image.data = Buffer.from(fs.readFileSync("express-inventory-application/images/placeholder.png"));
         manufacturerDetail.image.contentType = "image/png";
     }
 
@@ -66,10 +66,10 @@ function categoryCreate(name, imagePath, callback) {
     const categoryDetail = { name, image: { data: null, contentType: null } };
 
     if (imagePath) {
-        categoryDetail.image.data = fs.readFileSync(imagePath);
+        categoryDetail.image.data = Buffer.from(fs.readFileSync(imagePath));
         categoryDetail.image.contentType = "image/png";
     } else {
-        categoryDetail.image.data = fs.readFileSync("express-inventory-application/images/placeholder.png");
+        categoryDetail.image.data = Buffer.from(fs.readFileSync("express-inventory-application/images/placeholder.png"));
         categoryDetail.image.contentType = "image/png";
     }
 
@@ -93,10 +93,10 @@ function itemCreate(category, manufacturer, model, description, price, stock, im
     const itemDetail = {category, manufacturer, model, description, price, stock, image: { data: null, contentType: null }};
 
     if (imagePath) {
-        itemDetail.image.data = fs.readFileSync(imagePath);
+        itemDetail.image.data = Buffer.from(fs.readFileSync(imagePath));
         itemDetail.image.contentType = "image/png";
     } else {
-        itemDetail.image.data = fs.readFileSync("express-inventory-application/images/placeholder.png");
+        itemDetail.image.data = Buffer.from(fs.readFileSync("express-inventory-application/images/placeholder.png"));
         itemDetail.image.contentType = "image/png";
     }
 
