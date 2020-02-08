@@ -8,6 +8,7 @@ const multer = require("multer");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var storageRouter = require("./routes/storage");
 
 var app = express();
 
@@ -32,12 +33,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(multer({
-  dest: path.resolve(__dirname, "/uploads")
-}));
+// app.use(multer({
+//   dest: path.resolve(__dirname, "/uploads")
+// }));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use("/storage", storageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
