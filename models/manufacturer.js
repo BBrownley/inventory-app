@@ -5,7 +5,7 @@ const ManufacturerSchema = new Schema(
     {
         name: {type: String, required: true},
         year_established: {type: Number},
-        image: {type: Buffer, contentType: String} // Using placeholder image if not specified
+        image: {type: Schema.Types.Buffer, contentType: String} // Using placeholder image if not specified
     }
 )
 
